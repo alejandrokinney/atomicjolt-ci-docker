@@ -1,4 +1,4 @@
-FROM ruby:2.4.1
+FROM ruby:2.4.6
 
 LABEL maintainer "David Spencer <david.spencer@atomicjolt.com>"
 
