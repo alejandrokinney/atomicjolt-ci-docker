@@ -13,11 +13,16 @@ docker build .
 ```
 docker image ls
 ```
-4. Make a new tag, updating versions where necessary:
+4. Get the new node and yarn versions
 ```
-docker tag <image id> dspencer01/atomicjolt-ci:ruby-2.4.1--node-8.15.1--yarn-1.10.1
+docker run -it --rm <image id> /bin/bash -c 'yarn --version'
+docker run -it --rm <image id> /bin/bash -c 'node --version'
 ```
-5. Push the new tag to dockerhub:
+5. Make a new tag, updating versions where necessary:
 ```
-docker push dspencer01/atomicjolt-ci:ruby-2.4.1--node-8.15.1--yarn-1.10.1
+docker tag <image id> atomicjolt/atomicjolt-ci:ruby-2.4.1--node-8.15.1--yarn-1.10.1
+```
+6. Push the new tag to dockerhub:
+```
+docker push atomicjolt/atomicjolt-ci:ruby-2.4.1--node-8.15.1--yarn-1.10.1
 ```
