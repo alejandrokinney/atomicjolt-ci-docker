@@ -1,4 +1,4 @@
-FROM ruby:2.4.6
+FROM ruby:2.5.7
 
 LABEL maintainer "David Spencer <david.spencer@atomicjolt.com>"
 
@@ -9,7 +9,7 @@ RUN apt-get update -yqqq && \
 # Install node
 RUN apt-get update -yqqq && \
     apt-get install -y apt-transport-https && \
-    curl -sL https://deb.nodesource.com/setup_8.x | bash - && \
+    curl -sL https://deb.nodesource.com/setup_10.x | bash - && \
     apt-get update -yqqq && \
     apt-get install -y nodejs
 
