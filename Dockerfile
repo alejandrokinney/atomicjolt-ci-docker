@@ -2,9 +2,9 @@ FROM ruby:2.5.7
 
 LABEL maintainer "David Spencer <david.spencer@atomicjolt.com>"
 
-# Install cmake
+# Install dependencies
 RUN apt-get update -yqqq && \
-    apt-get install -y -qq cmake
+    apt-get install -y -qq cmake postgresql-client
 
 # Install node
 RUN apt-get update -yqqq && \
