@@ -7,22 +7,17 @@ docker login
 ```
 2. Build the new image:
 ```
-docker build .
+docker build . -t atomicjolt-ci:latest
 ```
-3. Get the new image ID: 
+3. Get the new node and yarn versions
 ```
-docker image ls
+docker run -it --rm atomicjolt-ci:latest /bin/sh -c 'ruby --version && node --version && yarn --version'
 ```
-4. Get the new node and yarn versions
+4. Make a new tag, updating versions where necessary:
 ```
-docker run -it --rm <image id> /bin/bash -c 'yarn --version'
-docker run -it --rm <image id> /bin/bash -c 'node --version'
+docker tag atomicjolt-ci:latest public.ecr.aws/n4r3s3d3/atomicjolt-ci:ruby-2.4.1--node-8.15.1--yarn-1.10.1
 ```
-5. Make a new tag, updating versions where necessary:
+5. Push the new tag to ecr:
 ```
-docker tag <image id> atomicjolt/atomicjolt-ci:ruby-2.4.1--node-8.15.1--yarn-1.10.1
-```
-6. Push the new tag to dockerhub:
-```
-docker push atomicjolt/atomicjolt-ci:ruby-2.4.1--node-8.15.1--yarn-1.10.1
+docker push public.ecr.aws/n4r3s3d3/atomicjolt-ci:ruby-2.4.1--node-8.15.1--yarn-1.10.1
 ```
